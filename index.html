@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazia Orsani | Elite Athletics Coach</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E2C87A;
+      --gold-dark:   #9A7A2E;
+      --white:       #FFFFFF;
+      --off-white:   #F8F6F1;
+      --charcoal:    #1C1C1C;
+      --mid-grey:    #555555;
+      --border:      rgba(201,168,76,0.25);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a  { text-decoration: none; color: inherit; }
+
+    /* ── UTILITY ── */
+    .gold       { color: var(--gold); }
+    .section-tag {
+      display: inline-block;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-size: .7rem;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      margin: 1.2rem 0 2rem;
+    }
+    .divider.center { margin-left: auto; margin-right: auto; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.4rem 5%;
+      transition: background .4s, box-shadow .4s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 2px 24px rgba(0,0,0,.07);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: .04em;
+      transition: color .4s;
+    }
+    nav.scrolled .nav-logo { color: var(--charcoal); }
+    .nav-logo span { color: var(--gold); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.85);
+      transition: color .3s;
+    }
+    nav.scrolled .nav-links a { color: var(--mid-grey); }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      padding: .55rem 1.4rem;
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold) !important;
+      transition: background .3s, color .3s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--white) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background-color: var(--charcoal);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('images/track-race.jpg') center 30% / cover no-repeat;
+      transform: scale(1.04);
+      animation: heroZoom 18s ease-in-out infinite alternate;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.04); }
+      to   { transform: scale(1.12); }
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(14,11,6,.72);
+    }
+    .hero-gold-line { display: none; }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 6%;
+      max-width: 860px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+    .hero-eyebrow span {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 7.5vw, 6rem);
+      font-weight: 700;
+      line-height: 1.05;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-subtitle {
+      font-size: clamp(.9rem, 1.5vw, 1.05rem);
+      font-weight: 300;
+      color: rgba(255,255,255,.72);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 2.4rem;
+    }
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: .8rem;
+      margin-bottom: 2.8rem;
+    }
+    .badge {
+      padding: .4rem 1rem;
+      border: 1px solid rgba(201,168,76,.5);
+      border-radius: 2px;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .9rem 2rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-primary svg { width: 16px; height: 16px; }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: .7rem;
+      padding: .9rem 2rem;
+      background: transparent;
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,.4);
+      cursor: pointer;
+      transition: border-color .3s, color .3s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      z-index: 2;
+    }
+    .hero-scroll span {
+      font-size: .62rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(180deg, var(--gold), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; transform: scaleY(1); }
+      50% { opacity: .4; transform: scaleY(.7); }
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--charcoal);
+      padding: 2.2rem 5%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+    }
+    .stat-item {
+      padding: 1rem 2rem;
+      border-right: 1px solid rgba(255,255,255,.08);
+      text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1.1;
+    }
+    .stat-label {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.5);
+      margin-top: .35rem;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      padding: 8rem 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+      height: 560px;
+    }
+    .about-img-main {
+      position: absolute;
+      top: 0; left: 0;
+      width: 72%;
+      height: 80%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: 0; right: 0;
+      width: 52%;
+      height: 52%;
+      object-fit: cover;
+      object-position: center top;
+      border: 6px solid var(--white);
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .about-gold-block {
+      position: absolute;
+      bottom: 5%;
+      left: -5%;
+      width: 90px;
+      height: 90px;
+      background: var(--gold);
+      z-index: -1;
+    }
+    .about-year-badge {
+      position: absolute;
+      top: 42%;
+      right: 5%;
+      background: var(--charcoal);
+      color: var(--gold);
+      padding: .9rem 1.2rem;
+      text-align: center;
+      border-left: 3px solid var(--gold);
+    }
+    .about-year-badge .year {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1;
+      display: block;
+    }
+    .about-year-badge .year-label {
+      font-size: .6rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.6);
+    }
+    .about-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: .4rem;
+    }
+    .about-text p {
+      font-size: .92rem;
+      line-height: 1.85;
+      color: var(--mid-grey);
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--charcoal); font-weight: 600; }
+    .pb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    .pb-item {
+      background: var(--white);
+      padding: 1rem 1.2rem;
+    }
+    .pb-distance {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+    }
+    .pb-time {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* ── CAREER TIMELINE ── */
+    #career {
+      background: var(--off-white);
+      padding: 8rem 5%;
+    }
+    .section-header { text-align: center; margin-bottom: 5rem; }
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border);
+      transform: translateX(-50%);
+    }
+    .tl-item {
+      display: grid;
+      grid-template-columns: 1fr 40px 1fr;
+      gap: 0 1.5rem;
+      margin-bottom: 3rem;
+      align-items: start;
+    }
+    .tl-item:nth-child(odd) .tl-content  { grid-column: 1; text-align: right; }
+    .tl-item:nth-child(odd) .tl-spacer   { grid-column: 2; }
+    .tl-item:nth-child(odd) .tl-year     { grid-column: 3; }
+
+    .tl-item:nth-child(even) .tl-year    { grid-column: 1; text-align: right; }
+    .tl-item:nth-child(even) .tl-spacer  { grid-column: 2; }
+    .tl-item:nth-child(even) .tl-content { grid-column: 3; }
+
+    .tl-dot {
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 1px var(--gold);
+      margin: .3rem auto 0;
+    }
+    .tl-year-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .tl-content h4 {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: .3rem;
+    }
+    .tl-content p {
+      font-size: .8rem;
+      color: var(--mid-grey);
+      line-height: 1.6;
+    }
+
+    /* ── COACHING ── */
+    #coaching {
+      padding: 8rem 5%;
+    }
+    .coaching-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 4rem;
+      background: var(--border);
+    }
+    .coaching-card {
+      background: var(--white);
+      padding: 2.8rem 2.2rem;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .3s;
+    }
+    .coaching-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 0; height: 3px;
+      background: var(--gold);
+      transition: width .4s ease;
+    }
+    .coaching-card:hover::before { width: 100%; }
+    .coaching-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.08); }
+    .card-icon {
+      width: 52px; height: 52px;
+      border: 1.5px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .card-icon svg { width: 24px; height: 24px; stroke: var(--gold); fill: none; }
+    .coaching-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+    .coaching-card p {
+      font-size: .83rem;
+      color: var(--mid-grey);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .card-list {
+      list-style: none;
+    }
+    .card-list li {
+      font-size: .78rem;
+      color: var(--mid-grey);
+      padding: .35rem 0;
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .card-list li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── GALLERY ── */
+    #gallery {
+      background: var(--charcoal);
+      padding: 8rem 5%;
+    }
+    #gallery .section-header h2 { color: var(--white); }
+    #gallery .section-tag { color: var(--gold); }
+    #gallery .divider { background: var(--gold); }
+    .gallery-intro {
+      text-align: center;
+      font-size: .88rem;
+      color: rgba(255,255,255,.5);
+      max-width: 500px;
+      margin: -3rem auto 4rem;
+      line-height: 1.7;
+      font-style: italic;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 3px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item:first-child {
+      grid-column: span 2;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      min-height: 280px;
+      filter: grayscale(20%) contrast(1.08) sepia(10%);
+      transition: transform .6s ease, filter .6s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0%) contrast(1.05) sepia(0%);
+    }
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(18,14,8,.6) 0%, transparent 50%);
+    }
+    .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem;
+      z-index: 1;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.7);
+    }
+
+    /* ── PHILOSOPHY ── */
+    #philosophy {
+      padding: 8rem 5%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    #philosophy blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--charcoal);
+      border-left: 3px solid var(--gold);
+      padding-left: 2rem;
+      margin-bottom: 2rem;
+    }
+    #philosophy blockquote em { color: var(--gold); font-style: normal; }
+    .philosophy-img {
+      position: relative;
+    }
+    .philosophy-img img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%) contrast(1.05);
+    }
+    .philosophy-img::before {
+      content: '';
+      position: absolute;
+      top: -20px; right: -20px;
+      bottom: 20px; left: 20px;
+      border: 1.5px solid var(--gold);
+      z-index: -1;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--off-white);
+      padding: 8rem 5%;
+    }
+    .contact-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .contact-inner p {
+      font-size: .9rem;
+      color: var(--mid-grey);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+    .contact-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      text-align: left;
+    }
+    .form-group.full { grid-column: span 2; }
+    .form-group label {
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--mid-grey);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: .85rem 1rem;
+      border: 1.5px solid rgba(0,0,0,.1);
+      background: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .85rem;
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color .3s;
+      border-radius: 0;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--gold); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      grid-column: span 2;
+      text-align: center;
+      margin-top: .5rem;
+    }
+    .btn-submit {
+      padding: 1rem 2.8rem;
+      background: var(--gold);
+      color: var(--charcoal);
+      font-family: 'Montserrat', sans-serif;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .btn-submit:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 3.5rem 5%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 2rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-tagline {
+      font-size: .72rem;
+      color: rgba(255,255,255,.35);
+      margin-top: .3rem;
+      letter-spacing: .1em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      transition: color .3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-bottom {
+      grid-column: span 2;
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-bottom p {
+      font-size: .68rem;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .1em;
+    }
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════════════════════
+       HAMBURGER + MOBILE DRAWER
+    ══════════════════════════════════════ */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      z-index: 101;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: background .3s;
+    }
+    nav.scrolled .hamburger span { background: var(--charcoal); }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: min(320px, 85vw);
+      height: 100%;
+      background: var(--charcoal);
+      z-index: 200;
+      transform: translateX(100%);
+      transition: transform .38s cubic-bezier(.4,0,.2,1);
+      display: flex;
+      flex-direction: column;
+      padding: 2.5rem 2rem;
+    }
+    .mobile-drawer.open { transform: translateX(0); }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 190;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .38s;
+    }
+    .drawer-overlay.visible { opacity: 1; pointer-events: all; }
+
+    .drawer-close {
+      align-self: flex-end;
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.5);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 4px 8px;
+      margin-bottom: 2rem;
+      transition: color .2s;
+    }
+    .drawer-close:hover { color: var(--gold); }
+
+    .drawer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      padding-bottom: 1.5rem;
+    }
+    .drawer-logo span { color: var(--gold); }
+
+    .drawer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      flex: 1;
+    }
+    .drawer-links li a {
+      display: block;
+      padding: 1rem 0;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.75);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      transition: color .2s, padding-left .2s;
+    }
+    .drawer-links li a:hover { color: var(--gold); padding-left: .5rem; }
+
+    .drawer-footer {
+      font-size: .68rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.25);
+      margin-top: 2rem;
+    }
+
+    /* ══════════════════════════════════════
+       TABLET  (≤ 900px)
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      /* nav */
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      /* hero */
+      #hero { min-height: 100svh; }
+      .hero-title { font-size: clamp(2.8rem, 10vw, 4rem); }
+
+      /* stats */
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .stat-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+      .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.08); }
+      .stat-item:last-child, .stat-item:nth-last-child(2):nth-child(odd) { border-bottom: none; }
+
+      /* about */
+      #about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 6%;
+      }
+      .about-images { height: 420px; }
+      .about-gold-block { display: none; }
+
+      /* career */
+      #career { padding: 5rem 6%; }
+      .tl-item { grid-template-columns: 60px 1fr; gap: 0 1rem; margin-bottom: 2rem; }
+      .timeline::before { left: 29px; transform: none; }
+      .tl-item:nth-child(odd) .tl-content,
+      .tl-item:nth-child(even) .tl-content {
+        grid-column: 2; grid-row: 1 / 3; text-align: left; order: unset;
+      }
+      .tl-item:nth-child(odd) .tl-year,
+      .tl-item:nth-child(even) .tl-year {
+        grid-column: 1; grid-row: 1; text-align: right; order: unset;
+      }
+      .tl-item:nth-child(odd) .tl-spacer,
+      .tl-item:nth-child(even) .tl-spacer { display: block; grid-column: 1; grid-row: 2; }
+      .tl-dot { margin: .3rem 0 0 auto; }
+      .tl-year-num { font-size: 1.1rem; }
+
+      /* coaching */
+      #coaching { padding: 5rem 6%; }
+      .coaching-grid { grid-template-columns: 1fr; gap: 2px; }
+
+      /* gallery */
+      #gallery { padding: 5rem 6%; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 3px; }
+      .gallery-item:first-child { grid-column: span 2; }
+      .gallery-item img { min-height: 220px; }
+
+      /* philosophy */
+      #philosophy {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        padding: 5rem 6%;
+      }
+      #philosophy .philosophy-img { order: -1; }
+      #philosophy .philosophy-img img { height: 340px; }
+      #philosophy .philosophy-img::before { display: none; }
+
+      /* contact */
+      #contact { padding: 5rem 6%; }
+    }
+
+    /* ══════════════════════════════════════
+       MOBILE  (≤ 600px)
+    ══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      /* nav */
+      nav { padding: 1.1rem 5%; }
+
+      /* hero */
+      .hero-content { padding: 0 5%; }
+      .hero-title { font-size: clamp(2.4rem, 11vw, 3.2rem); line-height: 1.08; }
+      .hero-subtitle { font-size: .88rem; margin-bottom: 2rem; }
+      .hero-badges { gap: .5rem; margin-bottom: 2rem; }
+      .badge { font-size: .6rem; padding: .35rem .8rem; }
+      .btn-primary, .btn-ghost { padding: .8rem 1.5rem; font-size: .72rem; }
+      .hero-scroll { bottom: 1.5rem; }
+
+      /* stats */
+      .stats-bar { grid-template-columns: 1fr 1fr; padding: 1.5rem 5%; }
+      .stat-item { padding: .8rem 1rem; }
+      .stat-number { font-size: 1.6rem; }
+      .stat-label { font-size: .6rem; }
+
+      /* section spacing */
+      #about, #career, #coaching, #gallery, #philosophy, #contact {
+        padding: 4rem 5%;
+      }
+
+      /* section headers */
+      .section-header { margin-bottom: 3rem; }
+      .section-header h2 { font-size: 1.8rem; }
+
+      /* about */
+      .about-images { height: 280px; }
+      .about-img-main { width: 65%; height: 78%; }
+      .about-img-accent { width: 55%; height: 55%; border-width: 4px; }
+      .about-year-badge { padding: .6rem .9rem; top: 36%; right: 2%; }
+      .about-year-badge .year { font-size: 1.4rem; }
+      .about-text h2 { font-size: 1.7rem; }
+      .about-text p { font-size: .85rem; }
+      .pb-grid { grid-template-columns: 1fr 1fr; }
+      .pb-time { font-size: 1.2rem; }
+
+      /* career */
+      .tl-item { grid-template-columns: 50px 1fr; }
+      .timeline::before { left: 24px; }
+      .tl-content h4 { font-size: .82rem; }
+      .tl-content p { font-size: .76rem; }
+
+      /* coaching cards */
+      .coaching-card { padding: 2rem 1.5rem; }
+
+      /* gallery */
+      .gallery-grid { grid-template-columns: 1fr; gap: 3px; }
+      .gallery-item:first-child { grid-column: span 1; }
+      .gallery-item img { min-height: 240px; }
+      .gallery-intro { font-size: .82rem; margin-bottom: 2rem; }
+
+      /* philosophy */
+      #philosophy blockquote { font-size: 1.25rem; padding-left: 1.2rem; }
+      .philosophy-img img { height: 260px; }
+
+      /* contact */
+      .contact-form { grid-template-columns: 1fr; }
+      .form-group.full, .form-submit { grid-column: span 1; }
+      .contact-inner h2 { font-size: 1.7rem; }
+      .contact-inner p { font-size: .85rem; }
+
+      /* footer */
+      footer {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 2.5rem 5%;
+      }
+      .footer-links { flex-wrap: wrap; gap: 1rem 1.5rem; }
+      .footer-bottom {
+        flex-direction: column;
+        gap: .5rem;
+        text-align: center;
+      }
+    }
+
+    /* ══════════════════════════════════════
+       SMALL MOBILE  (≤ 380px)
+    ══════════════════════════════════════ */
+    @media (max-width: 380px) {
+      .hero-title { font-size: 2.2rem; }
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; }
+      .stats-bar { grid-template-columns: 1fr; }
+      .stat-item { border-right: none !important; }
+      .pb-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVIGATION ── -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">Grazia <span>Orsani</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact" class="nav-cta">Work with me</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── MOBILE DRAWER ── -->
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">&#x2715;</button>
+    <div class="drawer-logo">Grazia <span>Orsani</span></div>
+    <ul class="drawer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Work with Me</a></li>
+    </ul>
+    <div class="drawer-footer">Elite Athletics Coach · Naples, Italy</div>
+  </div>
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-gold-line"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span>Elite Athletics Coach</span>
+      </div>
+      <h1 class="hero-title">
+        Train with<br/>
+        <em>a Champion</em>
+      </h1>
+      <p class="hero-subtitle">
+        World-class coaching in race walk, long distance running, and marathon — from an athlete who competed on the world stage in the golden era of Italian athletics.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Race Walk</span>
+        <span class="badge">Long Distance</span>
+        <span class="badge">Marathon</span>
+        <span class="badge">World Junior Bronze '88</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#coaching" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Discover Coaching
+        </a>
+        <a href="#about" class="btn-ghost">My Story</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── STATS BAR ── -->
+  <div class="stats-bar">
+    <div class="stat-item">
+      <div class="stat-number">1988</div>
+      <div class="stat-label">World Junior Bronze</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">21:15</div>
+      <div class="stat-label">5km Race Walk PB</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">1:38</div>
+      <div class="stat-label">20km Race Walk PB</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">10+</div>
+      <div class="stat-label">Years at Elite Level</div>
+    </div>
+  </div>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-images reveal">
+      <img class="about-img-main" src="images/podium.jpg" alt="Grazia Orsani on the victory podium" />
+      <img class="about-img-accent" src="images/road-race.jpg" alt="Grazia Orsani competing in a road race" />
+      <div class="about-gold-block"></div>
+      <div class="about-year-badge">
+        <span class="year">1988</span>
+        <span class="year-label">World Junior<br/>Bronze Medal</span>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-tag">About Grazia</span>
+      <h2>A Life Devoted<br/>to the Track</h2>
+      <div class="divider"></div>
+      <p>
+        Born on <strong>11 June 1969</strong> in a <strong>rural village on the outskirts of Naples</strong>, Maria Grazia Orsani grew up far from the facilities and infrastructure that most elite athletes take for granted. There were no proper tracks, no coaching academies, no well-maintained roads to train on — just raw determination and a deep, burning passion for movement. In a region where sport was largely considered a man's pursuit, simply showing up to compete was itself an act of courage.
+      </p>
+      <p>
+        The Italy of the 1980s offered little support to women in athletics. Female athletes were frequently marginalised — dismissed by institutions, under-resourced by federations, and discouraged by a culture that questioned whether women belonged in serious competitive sport at all. Grazia faced these barriers head-on. She trained in gruelling conditions: uneven country roads, makeshift circuits, and whatever open ground she could find near her home. <strong>What she lacked in facilities, she more than made up for in tenacity.</strong>
+      </p>
+      <p>
+        Against every odd, she rose from those dusty roads outside Naples to the world stage — earning a <strong>bronze medal at the 1988 World Junior Championships</strong> in Sudbury, Canada, and representing Italy in Azzurri blue across Europe. Her career through the late 1980s and into the 1990s is a testament to what sheer willpower can achieve when talent meets an unbreakable spirit.
+      </p>
+      <p>
+        Today she channels that hard-won experience into <strong>transformative coaching</strong> — helping athletes of all levels find their stride, build race strategy, and realise their potential in race walk, long distance, and marathon.
+      </p>
+      <div class="pb-grid">
+        <div class="pb-item">
+          <div class="pb-distance">5 km Race Walk</div>
+          <div class="pb-time">21:15</div>
+        </div>
+        <div class="pb-item">
+          <div class="pb-distance">10 km Race Walk</div>
+          <div class="pb-time">44:45</div>
+        </div>
+        <div class="pb-item">
+          <div class="pb-distance">20 km Race Walk</div>
+          <div class="pb-time">1:38:13</div>
+        </div>
+        <div class="pb-item">
+          <div class="pb-distance">3 km Race Walk</div>
+          <div class="pb-time">14:07</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CAREER TIMELINE ── -->
+  <section id="career">
+    <div class="section-header reveal">
+      <span class="section-tag">Competitive Career</span>
+      <h2>A Champion's Journey</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <h4>First International Debut</h4>
+          <p>Indoor 3000m race walk, Liévin, France — setting a personal best of 14:07.53, announcing herself on the European stage.</p>
+        </div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-year"><div class="tl-year-num">1987</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><div class="tl-year-num">1987</div></div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>World Championships — Rome</h4>
+          <p>Competed in the 10 km walk at the World Championships on home soil in Rome, Italy — one of the sport's greatest stages.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <h4>World Junior Bronze Medal</h4>
+          <p>Third place in the 5000 m walk at the World Junior Championships in Sudbury, Canada — her crowning international achievement, with a time of 22:04.74.</p>
+        </div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-year"><div class="tl-year-num">1988</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><div class="tl-year-num">1989</div></div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>10 km Personal Best</h4>
+          <p>Clocked 44:45 in the 10 km road walk — a benchmark performance that confirmed her status among Italy's elite.</p>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-content">
+          <h4>5 km Race Walk Peak</h4>
+          <p>Set her lifetime best of 21:15.4 over 5 km — a testament to years of disciplined training and championship racing.</p>
+        </div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-year"><div class="tl-year-num">1993</div></div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-year"><div class="tl-year-num">1999</div></div>
+        <div class="tl-spacer"><div class="tl-dot"></div></div>
+        <div class="tl-content">
+          <h4>20 km Race Walk, Reggio Calabria</h4>
+          <p>Completed the 20 km race walk in 1:39:59 — demonstrating enduring quality at the highest level well into her career.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COACHING SERVICES ── -->
+  <section id="coaching">
+    <div class="section-header reveal">
+      <span class="section-tag">Coaching Services</span>
+      <h2>Train Smarter.<br/>Race Faster.</h2>
+      <div class="divider center"></div>
+    </div>
+    <div class="coaching-grid">
+
+      <div class="coaching-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+        <h3>Race Walk</h3>
+        <p>The most technically demanding discipline in athletics. Grazia's bronze-medal technique and decades of competition translate into coaching that builds legal, efficient race walking from the ground up.</p>
+        <ul class="card-list">
+          <li>Technique analysis & correction</li>
+          <li>Legal contact & straight-leg training</li>
+          <li>Race strategy & pacing</li>
+          <li>Competition preparation</li>
+          <li>Video gait analysis</li>
+        </ul>
+      </div>
+
+      <div class="coaching-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5">
+            <path d="M3 12c0-5 4-9 9-9s9 4 9 9M3 12c0 5 4 9 9 9M12 3v18M3 12h18"/>
+          </svg>
+        </div>
+        <h3>Long Distance Running</h3>
+        <p>From 5000 m on the track to cross-country and road races, Grazia's structured approach to endurance training develops athletes who perform when it counts most.</p>
+        <ul class="card-list">
+          <li>Periodised training plans</li>
+          <li>Track & road work integration</li>
+          <li>VO₂ max development</li>
+          <li>Threshold & tempo sessions</li>
+          <li>Mental resilience coaching</li>
+        </ul>
+      </div>
+
+      <div class="coaching-card reveal">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Marathon</h3>
+        <p>26.2 miles of grit, strategy and endurance. Grazia's coaching philosophy merges elite athletic principles with individual athlete needs — whether you're chasing a finish line or a podium.</p>
+        <ul class="card-list">
+          <li>16–24 week build programmes</li>
+          <li>Race day nutrition & fuelling</li>
+          <li>Long run progression</li>
+          <li>Injury prevention protocols</li>
+          <li>Post-race recovery plans</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── GALLERY ── -->
+  <section id="gallery">
+    <div class="section-header reveal">
+      <span class="section-tag">The Archive</span>
+      <h2 style="color:var(--white)">From the <em class="gold">Golden Era</em></h2>
+      <div class="divider center"></div>
+    </div>
+    <p class="gallery-intro">A window into the 1980s and '90s — when Italian athletics blazed across tracks, roads and podiums across the world.</p>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <img src="images/track-race.jpg" alt="Track race — GIGLIO International Meet" />
+        <div class="gallery-caption">Track Race · GIGLIO International Meet</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="images/podium.jpg" alt="Victory podium — 1st place trophy" />
+        <div class="gallery-caption">Victory Podium · Italian Championships</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="images/road-race.jpg" alt="Road race, cobblestone streets" />
+        <div class="gallery-caption">Road Race · Italy</div>
+      </div>
+      <div class="gallery-item reveal">
+        <img src="images/cross-country.jpg" alt="Coastal road race" />
+        <div class="gallery-caption">International Road Race</div>
+      </div>
+      <div class="gallery-item reveal" style="grid-column: span 2;">
+        <img src="images/track-training.jpg" alt="Training on the track in Italian kit" />
+        <div class="gallery-caption">Training Day · Italian National Kit</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHILOSOPHY ── -->
+  <section id="philosophy">
+    <div class="reveal">
+      <span class="section-tag">Coaching Philosophy</span>
+      <blockquote>
+        "Championships are won in <em>training</em> — but they are remembered forever on the <em>podium</em>."
+      </blockquote>
+      <div class="divider"></div>
+      <p style="font-size:.9rem;color:var(--mid-grey);line-height:1.85;margin-bottom:1.5rem;">
+        Having stood on the international stage herself, Grazia understands what separates good athletes from great ones. It isn't only talent — it's the quality of preparation, the sharpness of technique, and the intelligence of race strategy.
+      </p>
+      <p style="font-size:.9rem;color:var(--mid-grey);line-height:1.85;margin-bottom:2rem;">
+        Her coaching adapts to each athlete's unique physiology, goals and timeline. Whether you are preparing for your first 10 km walk or targeting a national championship, Grazia designs programmes built on the same principles that earned her a World Junior medal.
+      </p>
+      <a href="#contact" class="btn-primary">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Start Your Journey
+      </a>
+    </div>
+    <div class="philosophy-img reveal">
+      <img src="images/track-training-2.jpg" alt="Grazia Orsani in training" />
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="reveal">
+        <span class="section-tag">Get in Touch</span>
+        <h2>Ready to Start?</h2>
+        <div class="divider center"></div>
+        <p>Whether you're new to the sport or chasing a personal best, Grazia would love to hear from you. Fill in the form and she'll be in touch within 48 hours.</p>
+      </div>
+      <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="form-group">
+          <label for="discipline">Discipline</label>
+          <select id="discipline" name="discipline">
+            <option value="">Select discipline</option>
+            <option>Race Walk</option>
+            <option>Long Distance Running</option>
+            <option>Marathon</option>
+            <option>Multiple / Unsure</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="level">Your Level</label>
+          <select id="level" name="level">
+            <option value="">Select level</option>
+            <option>Beginner</option>
+            <option>Recreational</option>
+            <option>Club Athlete</option>
+            <option>Regional / National</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="message">Tell me about your goals</label>
+          <textarea id="message" name="message" placeholder="Describe your current training, goals, and how you'd like to work together…"></textarea>
+        </div>
+        <div class="form-submit">
+          <button type="submit" class="btn-submit">Send Message</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div>
+      <div class="footer-logo">Grazia <span>Orsani</span></div>
+      <div class="footer-tagline">World Junior Bronze Medallist · Elite Athletics Coach</div>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#coaching">Coaching</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Maria Grazia Orsani. All rights reserved.</p>
+      <p>Elite Athletics Coaching · Italy</p>
+    </div>
+  </footer>
+
+  <script>
+    // ── NAV scroll behaviour ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ── HAMBURGER / DRAWER ──
+    const hamburger    = document.getElementById('hamburger');
+    const drawer       = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const drawerClose  = document.getElementById('drawerClose');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('visible');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // Close drawer when a link is tapped
+    document.querySelectorAll('.drawer-links a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // ── Reveal on scroll ──
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // ── Form submit ──
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.btn-submit');
+      btn.textContent = 'Message Sent!';
+      btn.style.background = '#4a7c59';
+      btn.style.color = '#fff';
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.style.color = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
